@@ -186,61 +186,45 @@ address {
     color: #404BBF;
 }
 
-.mobile-menu {
-    display: block;
-    height: 2px;
-    text-decoration: underline;
-    color: #2F2F37;
-
+.mobile-menu-button {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    height: 24px;
 }
 
-.mobile-menu span {
-    display: block;
-    font-size: 5px;
+.mobile-menu-svg {
+    fill: #2F2F37;
 }
 
 .mobile-popup.is-open {
-    /* display: block; */
-    /* position: fixed; */
-    /* background-color: white;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 9999; */
     transform: translate(0%);
 }
 
 .mobile-popup {
-    /* display: block; */
-    /* position: fixed; */
-    /* background-color: white;
+    display: block;
+    position: fixed;
+    background-color: white;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: 999; */
+    z-index: 999;
     transform: translateX(-100%);
 }
-
 
 .mobile-popup-container {
     display: flex;
     flex-direction: column;
     position: absolute;
-    /* max-width: 320px; */
-    /* height: 100vw; */
     padding: 16px;
-    /* transform: translateX(-100%); */
     justify-content: space-between;
-    background-color: white;
-    z-index: 999;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
+    /* max-width: 288px;
+    max-height: 623px; */
 }
 
 .mobile-popup-cross {
@@ -265,10 +249,10 @@ address {
     margin-top: 56px;
 }
 
-.mobile-popup-ul {
+.mobile-popup-nav-ul {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 40px;
 }
 
 .mobile-popup-li a {
@@ -286,8 +270,14 @@ address {
     color: #4D5AE5;
 }
 
-.mobile-popup-address {
+/* .mobile-popup-address {
     margin-bottom: 48px;
+} */
+
+.mobile-popup-address-ul {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
 .mobile-popup-tel {
@@ -309,6 +299,36 @@ address {
     letter-spacing: 0.02em;
     text-align: left;
     color: #434455;
+}
+
+.mobile-popup-list-icons {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 8px;
+    margin-bottom: 40px;
+}
+
+.mobile-popup-list-li {
+    width: 40px;
+    height: 40px;
+}
+
+.mobile-popup-list-a {
+    width: 100%;
+    height: 100%;
+    background-color: #4d5ae5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-popup-list-icon {
+    fill: #f4f4fd;
 }
 
 /*=============== /Header =================*/
@@ -979,6 +999,7 @@ a.title-button {
     justify-content: center;
     fill: transparent;
     margin-right: 8px;
+    flex-shrink: 0;
 }
 
 .modal-dialog-checkbox-a {
@@ -1018,19 +1039,24 @@ a.title-button {
 }
 
 /*=============== /Backdrop =====================*/
+
 /*======== @media (max-width:1158px) ============*/
 
+/* @media (min-resolution: 192dpi) and (max-width:1158px) {} */
+
 @media (max-width:1158px) {
+
     .header .container {
         max-width: 768px;
         width: 100%;
+        align-items: center;
         justify-content: space-between;
     }
 
     .address-ul {
         flex-direction: column;
         gap: 12px;
-        margin: 16px 0;
+        font-size: 12px;
     }
 
     .address .link {
@@ -1089,7 +1115,7 @@ a.title-button {
     }
 
     .team .container {
-        max-width: 768px;
+        max-width: 584px;
         width: 100%;
     }
 
@@ -1097,13 +1123,13 @@ a.title-button {
         flex-wrap: wrap;
         align-items: baseline;
         justify-content: center;
-        /* margin: 0 -24px -64px; */
+        column-gap: 24px;
+        row-gap: 96px;
     }
 
     .team-list {
-        /* width: calc((100% - 48px) / 2); */
-        margin: 0 12px 64px;
-        flex-basis: calc((100% - 2* 12px) / 3);
+        width: calc((100% - 24px) / 2);
+        max-width: 264px;
     }
 
     .portfolio {
@@ -1115,6 +1141,11 @@ a.title-button {
         width: 100%;
     }
 
+    .portfolio-ul {
+        column-gap: 24px;
+        row-gap: 72px;
+    }
+
     .portfolio-list {
         width: calc((100% - 48px) / 2);
     }
@@ -1124,7 +1155,7 @@ a.title-button {
     }
 
     .footer .container {
-        max-width: 768px;
+        max-width: 584px;
         width: 100%;
         flex-wrap: wrap;
         justify-content: start;
@@ -1134,8 +1165,8 @@ a.title-button {
         margin: 0 24px 72px 0;
     }
 
-    .title-modal-dialog {
-        top: 30%;
+    .social-media {
+        margin-right: 40px;
     }
 
 }
@@ -1146,7 +1177,8 @@ a.title-button {
 
 
 @media (min-width: 769px) {
-    .mobile-menu {
+
+    .mobile-menu-button {
         display: none;
     }
 
@@ -1156,9 +1188,10 @@ a.title-button {
 }
 
 
-
 /*======== / @media (max-width:768px) ============*/
+
 @media (max-width:768px) {
+
     .header {
         padding: 16px;
     }
@@ -1192,12 +1225,21 @@ a.title-button {
         line-height: 40px;
         letter-spacing: 0.02em;
         text-align: center;
+        max-width: 216px;
+        margin-bottom: 72px;
     }
 
     .title-modal-dialog {
         /* backdrop-modal-window */
         width: 288px;
         height: 623px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .modal-dialog-checkbox-label {
+        display: flex;
+        align-items: center;
     }
 
     .advantages {
@@ -1286,7 +1328,9 @@ a.title-button {
     }
 
     .footer-logo {
-        margin: 0 0 72px;
+        margin: 0 auto;
+        margin-bottom: 72px;
+        ;
     }
 
     .footer-web-studio {
@@ -1300,7 +1344,8 @@ a.title-button {
     }
 
     .social-media {
-        margin: 0 auto 72px;
+        margin: 0 auto;
+        margin-bottom: 72px;
     }
 
     .social-media-p {
@@ -1309,6 +1354,7 @@ a.title-button {
 
     .footer-subscribe {
         width: 100%;
+        margin: 0 auto;
     }
 
     .footer-subscribe-p {
@@ -1317,6 +1363,13 @@ a.title-button {
 
     .footer-subscribe-form {
         flex-direction: column;
+        margin: 0 auto;
+        gap: 0;
+    }
+
+    .footer-subscribe-label {
+        margin: 0 auto;
+        margin-bottom: 24px;
     }
 
     .footer-subscribe-btn {
